@@ -101,7 +101,7 @@ for block in blocks:
     try:
         if '.csv' in block['href'] or '.xls' in block['href'] or '.xlsx' in block['href']:
             link = 'http://www.eastcheshire.nhs.uk'+block['href']
-            title = link.split('/')[-1].split('.csv')[0]
+            title = link.split('/')[-1].split('.csv')[0].replace('Expenditure%20Over%2025k%20', '').replace('Expenditure%20over%2025k%20', '').replace('.xlsx', '').replace('%20', '').strip()
             csvMth = title[:3]
             csvYr = '20'+title[-2:]
             csvMth = convert_mth_strings(csvMth.upper())
